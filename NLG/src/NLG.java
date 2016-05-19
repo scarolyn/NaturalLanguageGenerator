@@ -3,10 +3,11 @@
  */
 import java.util.*;
 import java.io.*;
-public class NLG {
-    BufferedReader reader;
 
-    public NLG(String filename) {
+public class NLG {
+    private HashMap<String, HashMap<String, Double>> primary;
+
+    public NLG(String fileName) throws Exception {
         //set up a reader for the csv
         FileReader fr = null;
         try {
@@ -16,54 +17,37 @@ public class NLG {
         }
         BufferedReader reader = new BufferedReader(fr);
         //set up data structure
-        HashMap<String, HashMap<String, String>> primary = new HashMap<String, HashMap<String, String>>();
+        primary = new HashMap<String, HashMap<String, Double>>();
         String[] tickers = reader.readLine().split(",");
-        for(int i = 0; i < tickers.length; i++) {
-            primary.put(tickers[i], new HashMap<String, String>());
+
+        for(int i = 1; i < tickers.length; i++) {
+            primary.put(tickers[i], new HashMap<String, Double>());
+        }
+
+        String line;
+        while((line = reader.readLine()) != null) {
+            String[] values = line.split(",");
+            for(int i = 1; i < values.length; i++) {
+                primary.get(tickers[i]).put(values[0], Double.parseDouble(values[i]));
+            }
         }
     }
 
-    public static void main(String[] args) {
-        NLG generator = new NLG("input.csv");
+    public HashMap<String, HashMap<String, Double>> getPrimary() {
+        return primary;
     }
 
-
-
-
-    /*
-        public void outputResult(String fileName) {
-        FileWriter output = null;
-        try {
-            output = new FileWriter(fileName);
-            BufferedWriter writer = new BufferedWriter(output);
-
-            String[] arr = new String[4];
-            String cur = reader.readLine();
-            while(cur != null) {
-                arr = cur.split(",");
-                if(info.containsKey(arr[1])) {
-                    info.get(arr[1]).addEntry(Long.parseLong(arr[0]),Integer.parseInt(arr[2]),Integer.parseInt(arr[3]));
-                }
-                else {
-                    info.put(arr[1], new StockInfo(Long.parseLong(arr[0]),Integer.parseInt(arr[2]),Integer.parseInt(arr[3])));
-                }
-                cur = reader.readLine();
-            }
-
-            TreeMap<String, StockInfo> sorted = new TreeMap<String, StockInfo>(info);
-            Set<Map.Entry<String, StockInfo>> entries = sorted.entrySet();
-            Iterator<Map.Entry<String, StockInfo>> iter = entries.iterator();
-            while(iter.hasNext()) {
-                Map.Entry<String, StockInfo> entry = iter.next();
-                writer.write(entry.getKey() + "," + entry.getValue().toString());
-                writer.newLine();
-            }
-
-            reader.close();
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public Double getValue(String ticker, String date) {
+        return primary.get(ticker).get(date);
     }
-     */
+
+    public Double getDelta(String ticker, String date1, String date2) {
+        return primary.get(ticker).get(date2) - primary.get(ticker).get(date1);
+    }
+
+    public static void main(String[] args) throws Exception {
+        NLG generator = new NLG("test.txt");
+
+    }
+
 }
