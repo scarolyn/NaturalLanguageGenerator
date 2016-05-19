@@ -5,10 +5,10 @@ public class NLG {
     BufferedReader reader;
 
     public static void main(String[] args) {
-        BufferedReader reader = new SetHashmaps("input.csv");
+        reader = new getReader("input.csv");
     }
 
-    public static BufferedReader SetHashmaps(String fileName) {
+    private static BufferedReader getReader(String fileName) {
         info = new HashMap<String, StockInfo>();
         FileReader fr = null;
         try {
@@ -18,6 +18,12 @@ public class NLG {
         }
         return new BufferedReader(fr);
     }
+
+    private static HashMap<String, HashMap<String, String>> setHashmaps() {
+        HashMap<String, HashMap<String, String>> primary = new HashMap<String, HashMap<String, String>>();
+    }
+
+
 
     /*
         public void outputResult(String fileName) {
