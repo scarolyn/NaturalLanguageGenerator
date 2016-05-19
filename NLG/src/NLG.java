@@ -1,27 +1,32 @@
 /**
  * Created by anjieliang on 5/19/16.
  */
+import java.util.*;
+import java.io.*;
 public class NLG {
     BufferedReader reader;
 
-    public static void main(String[] args) {
-        reader = new getReader("input.csv");
-    }
-
-    private static BufferedReader getReader(String fileName) {
-        info = new HashMap<String, StockInfo>();
+    public NLG(String filename) {
+        //set up a reader for the csv
         FileReader fr = null;
         try {
             fr = new FileReader(fileName);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        return new BufferedReader(fr);
+        BufferedReader reader = new BufferedReader(fr);
+        //set up data structure
+        HashMap<String, HashMap<String, String>> primary = new HashMap<String, HashMap<String, String>>();
+        String[] tickers = reader.readLine().split(",");
+        for(int i = 0; i < tickers.length; i++) {
+            primary.put(tickers[i], new HashMap<String, String>());
+        }
     }
 
-    private static HashMap<String, HashMap<String, String>> setHashmaps() {
-        HashMap<String, HashMap<String, String>> primary = new HashMap<String, HashMap<String, String>>();
+    public static void main(String[] args) {
+        NLG generator = new NLG("input.csv");
     }
+
 
 
 
