@@ -2,12 +2,19 @@ import pandas as pd
 from scipy import stats
 import sys
 
-Location = r'C:\Users\Carolyn\workspace\NaturalLanguageGenerator\locus_data_12years.csv'
+Location = r'C:\CreditSuisse\NaturalLanguageGenerator\locus_data_12years.csv'
 df = pd.read_csv(Location)
 
 df_index = df.set_index('Date')
+<<<<<<< HEAD
 df_index.fillna(method='bfill')
 
+=======
+print(df_index.irow(912))
+df_index.fillna(method='bfill', inplace=True)
+print('     AFTER')
+print(df_index.irow(912))
+>>>>>>> master
 
 def get_delta(ticker, first_date, second_date):
     try:

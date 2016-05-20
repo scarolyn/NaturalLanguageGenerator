@@ -18,7 +18,14 @@ def format_date(date):
         return '0' + date
     return date
 
+<<<<<<< HEAD
 delta = ff.get_delta(name, date1, date2)
+=======
+#name = '10yr_tsy'
+#date1 = '19-May-05'
+# date2 = '20-May-05'
+# delta = ff.get_delta(name, date1, date2)
+>>>>>>> master
 
 tickers = {}
 for x in ff.get_headers():
@@ -34,6 +41,7 @@ def day_compare(name, date1, date2):
         return 'The ' + str(t._fullname) + ' ' + str(t._up_value) + ' by ' + str(abs(delta)) + 'bps.'
     return 'There was no change in the ' + t._fullname + '.'
 
+<<<<<<< HEAD
 
 def regress_compare(name, date1, date2):
     t = tickers[name]
@@ -139,5 +147,8 @@ def paragraph(date1, date2):
 # print(week_compare(name, date1, date2))
 print(paragraph(date1, date2))
 print (ff.get_lowest('2yr_tsy', '23-May-05'))
+=======
+#print(day_compare(name, date1, date2))
+>>>>>>> master
 #2 year treasury interest rates rallied 7bps.
 

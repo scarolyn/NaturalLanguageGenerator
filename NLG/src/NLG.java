@@ -28,7 +28,14 @@ public class NLG {
         while((line = reader.readLine()) != null) {
             String[] values = line.split(",");
             for(int i = 1; i < values.length; i++) {
-                primary.get(tickers[i]).put(values[0], Double.parseDouble(values[i]));
+                Double insert;
+                if(values[i].equals("")) {
+                    insert = null;
+                }
+                else {
+                    insert = Double.parseDouble(values[i]);
+                }
+                primary.get(tickers[i]).put(values[0], insert);
             }
         }
     }
@@ -47,7 +54,16 @@ public class NLG {
 
     public static void main(String[] args) throws Exception {
         NLG generator = new NLG("test.txt");
-
+        Scanner readIn = new Scanner(System.in);
+        while(readIn.hasNext()) {
+            String[] query = readIn.nextLine().split(" ");
+            if(query.length == 2) {
+                System.out.println(generator.getValue(query[0], query[1]));
+            }
+            else if(query.length == 3) {
+                System.out.println(generator.getDelta(query[0], query[1], query[2]));
+            }
+        }
     }
 
 }
