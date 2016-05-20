@@ -44,12 +44,12 @@ def regress_compare(name, date1, date2):
     output = ''
     if p_val < .05:
         if slope > 0:
-            output += 'The ' + str(t._fullname) + ' ' + 'has been positively trending.'
+            output += 'The ' + str(t._fullname) + ' ' + 'has ' + str(t._up_value) + ' overall.'
             if 'UST' in name:
                 output += ' Concerning the spreads of 2yr rates versus 10yr rates, they have been ' + \
                           str(t._up_value) + '.'
         elif slope < 0:
-            output += 'The ' + str(t._fullname) + ' ' + 'has been negatively trending.'
+            output += 'The ' + str(t._fullname) + ' ' + 'has ' + str(t._down_value) + ' overall.'
             output += ' Concerning the spreads of 2yr rates versus 10yr rates, they have been ' + \
                       str(t._down_value) + '.'
         elif slope is 0:
