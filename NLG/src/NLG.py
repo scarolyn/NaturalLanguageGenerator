@@ -20,6 +20,11 @@ def day_compare(name, date1, date2):
         return 'The ' + str(t._fullname) + ' ' + str(t._up_value) + ' by ' + str(abs(delta)) + 'bps.'
     return 'There was no change in the ' + t._fullname + '.'
 
+
+def week_compare(name, date1, date2):
+    return 'lol'
+
+
 print(day_compare(name, date1, date2))
 #2 year treasury interest rates rallied 7bps.
 
