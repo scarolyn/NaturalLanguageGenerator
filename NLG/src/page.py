@@ -26,8 +26,9 @@ def my_form_post():
         day2 = d2[8:]
         date2 = day2 + '-' + month2 + '-' + year2
 
+        if len(nlg.paragraph(date1, date2)) == 0:
+            return 'Data does not exist for these dates'
         return nlg.paragraph(date1, date2)
-
 
 if __name__ == '__main__':
     app.run()

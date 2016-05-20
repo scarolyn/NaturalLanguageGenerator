@@ -17,13 +17,16 @@ def get_delta(ticker, first_date, second_date):
     try:
         return bp_format(df_index.at[second_date, ticker] - df_index.at[first_date, ticker])
     except KeyError:
-        print('Could not find dates.')
+        print('No data available for these dates.')
         sys.exit()
 
 
 def get_value(ticker, date):
-    return bp_format(df_index.at[date, ticker])
-
+    try:
+        return bp_format(df_index.at[date, ticker])
+    except KeyError:
+        print('No data available for this date.')
+        sys.exit()
 
 def bp_format(number):
     return int(round(number*100))
