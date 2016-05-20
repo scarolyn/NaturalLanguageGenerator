@@ -25,8 +25,8 @@ class Ticker(object):
         elif 'UST' in name:
             self._type = 'yield'
             self._fullname = 'difference between 2yr and 10yr yield'
-            self._up_value = 'steepened'
-            self._down_value = 'flattened'
+            self._up_value = 'sold off'
+            self._down_value = 'rallied'
 
 
 
