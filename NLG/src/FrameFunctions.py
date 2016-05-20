@@ -1,6 +1,6 @@
 import pandas as pd #this is how I usually import pandas
 
-Location = r'C:\Users\Carolyn\workspace\NaturalLanguageGenerator\locus_data_12years.csv'
+Location = r'C:\CreditSuisse\NaturalLanguageGenerator\locus_data_12years.csv'
 df = pd.read_csv(Location)
 
 df_index = df.set_index('Date')
