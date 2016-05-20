@@ -44,12 +44,12 @@ def regress_compare(name, date1, date2):
     output = ''
     if p_val < .05:
         if slope > 0:
-            output += 'The ' + str(t._fullname) + ' ' + 'has been positively trending.'
+            output += 'The ' + str(t._fullname) + ' ' + 'has ' + str(t._up_value) + ' overall.'
             if 'UST' in name:
                 output += ' Concerning the spreads of 2yr rates versus 10yr rates, they have been ' + \
                           str(t._up_value) + '.'
         elif slope < 0:
-            output += 'The ' + str(t._fullname) + ' ' + 'has been negatively trending.'
+            output += 'The ' + str(t._fullname) + ' ' + 'has ' + str(t._down_value) + ' overall.'
             output += ' Concerning the spreads of 2yr rates versus 10yr rates, they have been ' + \
                       str(t._down_value) + '.'
         elif slope is 0:
@@ -119,19 +119,19 @@ def revert_date(date):
 
 
 def paragraph(date1, date2):
-    print(date2 + ' vs ' + date1)
+    output = date2 + ' vs ' + date1 + ': '
     dateobj1 = convert_date(date1)
     dateobj2 = convert_date(date2)
     dateobj1 += timedelta(days=1)
     # if greater than 1 day difference
-    output = ''
+
     if dateobj1 < dateobj2:
         for x in important_tickers:
             output += week_compare(x, date1, date2) + ' ' + regress_compare(x, date1, date2) + ' '
         return output
     else:
         for x in important_tickers:
-            output = day_compare(x, date1, date2)
+            output += day_compare(x, date1, date2) + ' '
         return output
 
 

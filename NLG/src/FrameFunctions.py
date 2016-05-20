@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy import stats
 import sys
 
-Location = r'C:\CreditSuisse\REAL\NaturalLanguageGenerator\locus_data_12years.csv'
+Location = r'/Users/anjieliang/Dropbox/workspace/codesuisse/NaturalLanguageGenerator/locus_data_12years.csv'
 df = pd.read_csv(Location)
 
 df_index = df.set_index('Date')
@@ -18,15 +18,23 @@ def get_delta(ticker, first_date, second_date):
     try:
         return bp_format(df_index.at[second_date, ticker] - df_index.at[first_date, ticker])
     except KeyError:
-        print('Could not find dates.')
+        print('No data available for these dates.')
         sys.exit()
 
 
 def get_value(ticker, date):
+<<<<<<< HEAD
     return bp_format(df_index.at[date, ticker])
 
 def get_percent_value(ticker, date):
     return df_index.at[date, ticker]
+=======
+    try:
+        return bp_format(df_index.at[date, ticker])
+    except KeyError:
+        print('No data available for this date.')
+        sys.exit()
+>>>>>>> bbf91d2771ee2d3caaa6bc9c32e912400b945e25
 
 def bp_format(number):
     return int(round(number*100))
