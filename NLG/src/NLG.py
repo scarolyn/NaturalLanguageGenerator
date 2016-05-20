@@ -44,12 +44,12 @@ def regress_compare(name, date1, date2):
     output = ''
     if p_val < .05:
         if slope > 0:
-            output += 'The ' + str(t._fullname) + ' ' + 'has been positively trending.'
+            output += 'The ' + str(t._fullname) + ' ' + 'has ' + str(t._up_value) + ' overall.'
             if 'UST' in name:
                 output += ' Concerning the spreads of 2yr rates versus 10yr rates, they have been ' + \
                           str(t._up_value) + '.'
         elif slope < 0:
-            output += 'The ' + str(t._fullname) + ' ' + 'has been negatively trending.'
+            output += 'The ' + str(t._fullname) + ' ' + 'has ' + str(t._down_value) + ' overall.'
             output += ' Concerning the spreads of 2yr rates versus 10yr rates, they have been ' + \
                       str(t._down_value) + '.'
         elif slope is 0:
@@ -99,9 +99,6 @@ def week_compare(name, date1, date2):
     output += 'Fluctuation in between these dates ranges from ' + str(min) + ' to ' + str(max) + 'bps. '
     return output
 
-
-
-
 def convert_date(date):
     # '18-May-2005'
     date = format_date(date)
@@ -136,7 +133,7 @@ def paragraph(date1, date2):
 
 
 
-
+ff.graph_yield_curve('05-Aug-05')
 # print(day_compare(name, date1, date2))
 # print(regress_compare(name, date1, date2))
 # print(week_compare(name, date1, date2))
