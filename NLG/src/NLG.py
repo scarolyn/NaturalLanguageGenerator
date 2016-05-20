@@ -131,7 +131,7 @@ def paragraph(date1, date2):
         return output
     else:
         for x in important_tickers:
-            output = day_compare(x, date1, date2)
+            output += day_compare(x, date1, date2) + ' '
         return output
 
 

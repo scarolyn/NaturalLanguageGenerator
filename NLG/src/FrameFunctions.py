@@ -2,7 +2,7 @@ import pandas as pd
 from scipy import stats
 import sys
 
-Location = r'C:\CreditSuisse\REAL\NaturalLanguageGenerator\locus_data_12years.csv'
+Location = r'/Users/anjieliang/Dropbox/workspace/codesuisse/NaturalLanguageGenerator/locus_data_12years.csv'
 df = pd.read_csv(Location)
 
 df_index = df.set_index('Date')
