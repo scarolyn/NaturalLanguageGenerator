@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 from scipy import stats
 import sys
 
@@ -24,6 +25,8 @@ def get_delta(ticker, first_date, second_date):
 def get_value(ticker, date):
     return bp_format(df_index.at[date, ticker])
 
+def get_percent_value(ticker, date):
+    return df_index.at[date, ticker]
 
 def bp_format(number):
     return int(round(number*100))
@@ -72,6 +75,22 @@ def get_lowest(name, date):
             count = counter
 
     return float(min), count
+
+def graph_yield_curve(date):
+    rates = [2, 3, 5, 10, 30]
+    yields = []
+    yields.append(get_percent_value('2yr_tsy', date))
+    yields.append(get_percent_value('3yr_tsy', date))
+    yields.append(get_percent_value('5yr_tsy', date))
+    yields.append(get_percent_value('10yr_tsy', date))
+    yields.append(get_percent_value('30yr_tsy', date))
+    plt.plot(rates, yields, 'bs')
+    plt.xlim(0, 35)
+    plt.xlabel('Time frame (in years) of Treasury Bill')
+    plt.ylabel('Yield (in %)')
+    plt.show()
+    plt.savefig('yield.png')
+
 
 
 
