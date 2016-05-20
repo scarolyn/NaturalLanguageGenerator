@@ -37,7 +37,11 @@ class Tests(unittest.TestCase):
         self.assertEqual(NLG.day_compare('30_YR_Survey_Rate', '23-May-11', '24-May-11'),
                     'The 30 year mortgage rate sold off by 7bps.')
         print('done with mortgage tests')
-        # tests for spreads TODO should be a 2 difference thing!!
+        # tests for spreads
+        self.assertEqual(NLG.day_compare('FN_4.0%_OAS', '19-May-11', '20-May-11'),
+                    'The 4.0% spread widened by 54bps.')
+        self.assertEqual(NLG.day_compare('FN_4.0%_OAS', '18-Apr-12', '19-Apr-12'),
+                    'The 4.0% spread narrowed by 267bps.')
         print('done with spreads tests')
 
 if __name__ == '__main__':

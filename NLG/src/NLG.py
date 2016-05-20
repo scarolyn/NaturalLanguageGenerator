@@ -99,9 +99,6 @@ def week_compare(name, date1, date2):
     output += 'Fluctuation in between these dates ranges from ' + str(min) + ' to ' + str(max) + 'bps. '
     return output
 
-
-
-
 def convert_date(date):
     # '18-May-2005'
     date = format_date(date)
