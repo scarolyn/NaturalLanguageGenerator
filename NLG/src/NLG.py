@@ -7,19 +7,25 @@ important_tickers = ['2yr-10yr_UST', '2yr_tsy', '10yr_swap', 'FN_4.0%_OAS']
 name = '2yr_tsy'
 date1 = '23-May-05'
 date2 = '03-Jun-05'
+
+
 def format_date(date):
     array = date.split('-')
     if len(array[0]) is 1:
         return '0' + date
     return date
+
 delta = ff.get_delta(name, date1, date2)
 #name = '10yr_tsy'
 #date1 = '19-May-05'
 # date2 = '20-May-05'
 # delta = ff.get_delta(name, date1, date2)
 tickers = {}
+
 for x in ff.get_headers():
     tickers[x] = Ticker(x)
+
+
 def day_compare(name, date1, date2):
     t = tickers[name]
     delta = ff.get_delta(name, date1, date2)
@@ -28,6 +34,8 @@ def day_compare(name, date1, date2):
     elif delta > 0:
         return 'The ' + str(t._fullname) + ' ' + str(t._up_value) + ' by ' + str(abs(delta)) + 'bps.'
     return 'There was no change in the ' + t._fullname + '.'
+
+
 def regress_compare(name, date1, date2):
     t = tickers[name]
     p_val, slope = ff.get_linregress(name, date1, date2)
@@ -47,6 +55,8 @@ def regress_compare(name, date1, date2):
         return output
     else:
         return 'The ' + str(t._fullname) + ' ' + 'has had mixed trends.'
+
+
 def week_compare(name, date1, date2):
     t = tickers[name]
     output = ''
@@ -84,6 +94,8 @@ def week_compare(name, date1, date2):
         output += 'In this time interval, all of the ' + str(t._fullname) + ' consistently ' + str(t._down_value) + '.'
     output += 'Fluctuation in between these dates ranges from ' + str(min) + ' to ' + str(max) + 'bps. '
     return output
+
+
 def convert_date(date):
     # '18-May-2005'
     date = format_date(date)
@@ -93,9 +105,13 @@ def convert_date(date):
     else:
         date = date[0:7] + '20' + str(year).zfill(2)
     return datetime.strptime(date, '%d-%b-%Y')
+
+
 def revert_date(date):
     temp = date.strftime('%d-%b-%Y')
     return str(temp[0:7]) + str(temp[9:])
+
+
 def paragraph(date1, date2):
     output = ''
     dateobj1 = convert_date(date1)
@@ -112,14 +128,20 @@ def paragraph(date1, date2):
         output += lowest_since(x, date2)
         output += highest_since(x, date2)
     return output
+
+
 def lowest_since(name, date):
     t = tickers[name]
     value, index = ff.get_lowest(name, date)
     return 'The lowest ' + str(t._fullname) + ' prior to ' + date +' was on ' + index + ' with ' + str(('%.2f' % value))+ '%. '
+
+
 def highest_since(name, date):
     t = tickers[name]
     value, index = ff.get_highest(name, date)
     return 'The highest ' + str(t._fullname) + ' prior to ' + date +' was on ' + index + ' with ' + str(('%.2f' % value))+ '%. '
+
+
 # ff.graph_yield_curve('05-Aug-05')
 # print(day_compare(name, date1, date2))
 # print(regress_compare(name, date1, date2))
