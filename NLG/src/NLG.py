@@ -1,14 +1,14 @@
 import FrameFunctions as ff
 from Ticker import Ticker
 
-name = '2yr-10yr_UST'
-date1 = '18-May-05'
-date2 = '19-May-05'
-delta = ff.get_delta(name, date1, date2)
+#name = '10yr_tsy'
+#date1 = '19-May-05'
+# date2 = '20-May-05'
+# delta = ff.get_delta(name, date1, date2)
 
 tickers = {}
 for x in ff.get_headers():
-    tickers[x] = Ticker(name)
+    tickers[x] = Ticker(x)
 
 
 def day_compare(name, date1, date2):
@@ -20,6 +20,6 @@ def day_compare(name, date1, date2):
         return 'The ' + str(t._fullname) + ' ' + str(t._up_value) + ' by ' + str(abs(delta)) + 'bps.'
     return 'There was no change in the ' + t._fullname + '.'
 
-print(day_compare(name, date1, date2))
+#print(day_compare(name, date1, date2))
 #2 year treasury interest rates rallied 7bps.
 

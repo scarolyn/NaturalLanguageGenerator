@@ -4,7 +4,7 @@ class Ticker(object):
         self._name = name
         if 'tsy' in name:
             self._type = 'interest'
-            self._fullname = self.get_yr(name) + ' treasury rates'
+            self._fullname = self.get_yr(name) + ' Treasury rates'
             self._up_value = 'sold off'
             self._down_value = 'rallied'
         elif 'swap' in name:
