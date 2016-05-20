@@ -119,7 +119,7 @@ def revert_date(date):
 
 
 def paragraph(date1, date2):
-    output = date2 + ' vs ' + date1 + ': '
+    output = ''
     dateobj1 = convert_date(date1)
     dateobj2 = convert_date(date2)
     dateobj1 += timedelta(days=1)
