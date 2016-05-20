@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b4270df-36af-4af9-9b71-adb076d04c36" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NLG/src/NLG.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NLG/src/templates/yield.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NLG/src/FrameFunctions.py" afterPath="$PROJECT_DIR$/NLG/src/FrameFunctions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NLG/src/templates/Paragraph.html" afterPath="$PROJECT_DIR$/NLG/src/templates/Paragraph.html" />
     </list>
     <ignored path="NaturalLanguageGenerator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -21,7 +18,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/NaturalLanguageGenerator$NLG.coverage" NAME="NLG Coverage Results" MODIFIED="1463757804803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NLG/src" />
-    <SUITE FILE_PATH="coverage/NaturalLanguageGenerator$flask.coverage" NAME="flask Coverage Results" MODIFIED="1463760274687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NLG/src" />
+    <SUITE FILE_PATH="coverage/NaturalLanguageGenerator$flask.coverage" NAME="flask Coverage Results" MODIFIED="1463760371623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NLG/src" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -62,17 +59,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Paragraph.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Paragraph.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NLG/src/templates/Paragraph.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-342">
-              <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+            <state relative-caret-position="252">
+              <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FrameFunctions.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FrameFunctions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NLG/src/FrameFunctions.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="66">
@@ -133,6 +130,7 @@
       <list>
         <option value="$PROJECT_DIR$/NLG/src/NLG.py" />
         <option value="$PROJECT_DIR$/NLG/src/FrameFunctions.py" />
+        <option value="$PROJECT_DIR$/NLG/src/templates/Paragraph.html" />
       </list>
     </option>
   </component>
@@ -884,14 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NLG/src/templates/Paragraph.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-342">
-          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NLG/src/NLG.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -931,6 +921,14 @@
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NLG/src/templates/Paragraph.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
