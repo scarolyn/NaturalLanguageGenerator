@@ -1,4 +1,4 @@
-import pandas as pd #this is how I usually import pandas
+import pandas as pd
 
 Location = r'C:\CreditSuisse\NaturalLanguageGenerator\locus_data_12years.csv'
 df = pd.read_csv(Location)
