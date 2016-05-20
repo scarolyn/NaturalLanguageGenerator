@@ -1,35 +1,27 @@
-# Import all libraries needed for the tutorial
+import FrameFunctions as ff
+import Ticker as t
 
-# General syntax to import specific functions in a library:
-##from (library) import (specific library function)
-from docutils.nodes import inline
-from pandas import DataFrame, read_csv
+name = '2yr_tsy'
+date1 = '18-May-05'
+date2 = '19-May-05'
+delta = ff.get_delta(name, date1, date2)
 
-# General syntax to import a library but no functions:
-##import (library) as (give the library a nickname/alias)
-import matplotlib.pyplot as plt
-import pandas as pd #this is how I usually import pandas
-import sys #only needed to determine Python version number
-import matplotlib #only needed to determine Matplotlib version number
-
-# Enable inline plotting
-
-Location = r'C:\Users\Carolyn\workspace\NaturalLanguageGenerator\locus_data_12years.csv'
-df = pd.read_csv(Location)
-
-firstDate = ""
-secondDate = ""
-ticker = ""
+t = t.Ticker(name)
+print(t._up_value)
+tickers = {}
+for x in ff.get_headers():
+    tickers[x] = t.Ticker(x)
 
 
+def day_compare(name, date1, date2):
+    t = tickers[name]
+    delta = ff.get_delta(name, date1, date2)
+    if delta < 0:
+        return "The " + t._fullname + t._down_value + " by " + delta + "bps."
+    elif delta > 0:
+        return "The " + t._fullname + t._up_value + " by " + delta + "bps."
+    return "There was no change in the " + t._fullname + "."
 
-print(df.all)
-print(df.icol(3))
-print(df.irow(df,5,copy=False))
-# %matplotlib inline
-# class NLG(object):
-#     primary = {}
-#     def __init__(self, filename):
-#         with open(filename, r) as f:
-#             f.readLine();
+print()
+#2 year treasury interest rates rallied 7bps.
 

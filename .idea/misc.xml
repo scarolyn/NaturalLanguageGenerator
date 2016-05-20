@@ -14,6 +14,7 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.5.1 (C:\Users\chris\Anaconda3\python.exe)" project-jdk-type="Python SDK" />
   <component name="masterDetails">
     <states>
@@ -30,5 +31,9 @@
         </settings>
       </state>
     </states>
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" assert-keyword="false" jdk-15="false" project-jdk-name="Python 3.5.1 (C:\Users\Carolyn\Anaconda3\python.exe)" project-jdk-type="Python SDK">
+    <output url="file://$PROJECT_DIR$/out" />
+>>>>>>> 150b346c5ba22c5fed6ed5043e1f5518c6ebaae9
   </component>
 </project>
