@@ -9,7 +9,7 @@ app = Flask(__name__)
 def my_form():
     return render_template("Page.html")
 
-@app.route('/', methods=['POST'])
+@app.route('/Paragraph', methods=['POST'])
 def my_form_post():
     months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
     if request.method == 'POST':
@@ -27,8 +27,8 @@ def my_form_post():
         date2 = day2 + '-' + month2 + '-' + year2
 
         if len(nlg.paragraph(date1, date2)) == 0:
-            return 'Data does not exist for these dates'
-        return nlg.paragraph(date1, date2)
+            return render_template('Paragraph.html', paragraph='Data does not exist for these dates')
+        return render_template('Paragraph.html', day1=date1, day2=date2, paragraph=nlg.paragraph(date1, date2))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
