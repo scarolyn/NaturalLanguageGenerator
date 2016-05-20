@@ -18,3 +18,9 @@ In the preliminary stages of testing our functions, we wrote black box unit test
 the expectation. As we added more language, the original tests may have been less relevant in the end when we wanted to
 change phrasing.
 
+page.py - flask code to get a webpage
+Integrated flask to host the UI
+
+/templates/Page.html - code for html webpage
+
+
