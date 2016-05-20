@@ -4,7 +4,7 @@ from scipy import stats
 import sys
 import csv
 
-Location = r'C:\Users\Carolyn\hack\NaturalLanguageGenerator\locus_data_12years.csv'
+Location = r'C:\CreditSuisse\REAL\NaturalLanguageGenerator\locus_data_12years.csv'
 df = pd.read_csv(Location)
 
 df_index = df.set_index('Date')
