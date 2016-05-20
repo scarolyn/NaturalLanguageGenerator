@@ -3,7 +3,7 @@ from flask import request
 from flask import render_template
 import NLG as nlg
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 @app.route('/')
 def my_form():

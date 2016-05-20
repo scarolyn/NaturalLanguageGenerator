@@ -120,6 +120,8 @@ def paragraph(date1, date2):
     dateobj1 = convert_date(date1)
     dateobj2 = convert_date(date2)
     dateobj1 += timedelta(days=1)
+    ff.graph_yield_curve(date2)
+
     # if greater than 1 day difference
 
     if dateobj1 < dateobj2:
@@ -133,7 +135,7 @@ def paragraph(date1, date2):
 
 
 
-ff.graph_yield_curve(date)
+
 # print(day_compare(name, date1, date2))
 # print(regress_compare(name, date1, date2))
 # print(week_compare(name, date1, date2))

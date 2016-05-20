@@ -92,8 +92,8 @@ def graph_yield_curve(date):
     plt.xlim(0, 35)
     plt.xlabel('Time frame (in years) of Treasury Bill')
     plt.ylabel('Yield (in %)')
-    plt.show()
-    plt.savefig('yield.png')
+    fig1 = plt.gcf()
+    fig1.savefig(r'C:\CreditSuisse\REAL\NaturalLanguageGenerator\NLG\src\static\yield.png')
 
 
 
