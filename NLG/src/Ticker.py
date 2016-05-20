@@ -31,6 +31,6 @@ class Ticker(object):
 
 
     def get_yr(self, name):
-        return str(name[0: int(name.index('yr'))]) + 'year'
+        return str(name[0: int(name.index('yr'))]) + ' year'
 
 
