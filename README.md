@@ -23,4 +23,10 @@ Integrated flask to host the UI
 
 /templates/Page.html - code for html webpage
 
+To get webpage:
+-run flask on page.py using an IDE (pycharm)
+-click on the localhost link that it outputs
+-type in the two dates. date 1 must be before date 2
+-receive the paragraph page with the natural language generator analysis
+
 
