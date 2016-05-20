@@ -8,10 +8,10 @@ df = pd.read_csv(Location)
 df_index = df.set_index('Date')
 df_index.fillna(method='bfill')
 
-print(df_index.irow(912))
+#print(df_index.irow(912))
 df_index.fillna(method='bfill', inplace=True)
-print('     AFTER')
-print(df_index.irow(912))
+#print('     AFTER')
+#print(df_index.irow(912))
 
 def get_delta(ticker, first_date, second_date):
     try:
