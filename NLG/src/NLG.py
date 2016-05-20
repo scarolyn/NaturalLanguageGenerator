@@ -133,7 +133,7 @@ def paragraph(date1, date2):
 
 
 
-ff.graph_yield_curve('05-Aug-05')
+ff.graph_yield_curve(date)
 # print(day_compare(name, date1, date2))
 # print(regress_compare(name, date1, date2))
 # print(week_compare(name, date1, date2))
