@@ -125,15 +125,26 @@ def paragraph(date1, date2):
     if dateobj1 < dateobj2:
         for x in important_tickers:
             output += week_compare(x, date1, date2) + ' ' + regress_compare(x, date1, date2) + ' '
-        return output
     else:
         for x in important_tickers:
             output += day_compare(x, date1, date2) + ' '
-        return output
+    for x in important_tickers:
+        output += lowest_since(x, date2)
+        output += highest_since(x, date2)
+    return output
 
 
+def lowest_since(name, date):
+    t = tickers[name]
+    value, index = ff.get_lowest(name, date)
+    return 'The lowest ' + str(t._fullname) + ' prior to ' + date +' was on ' + index + ' with ' + str(('%.2f' % value))+ '%. '
 
-ff.graph_yield_curve('05-Aug-05')
+
+def highest_since(name, date):
+    t = tickers[name]
+    value, index = ff.get_highest(name, date)
+    return 'The highest ' + str(t._fullname) + ' prior to ' + date +' was on ' + index + ' with ' + str(('%.2f' % value))+ '%. '
+# ff.graph_yield_curve('05-Aug-05')
 # print(day_compare(name, date1, date2))
 # print(regress_compare(name, date1, date2))
 # print(week_compare(name, date1, date2))
@@ -142,3 +153,4 @@ ff.graph_yield_curve('05-Aug-05')
 #print(day_compare(name, date1, date2))
 #2 year treasury interest rates rallied 7bps.
 
+print (paragraph(date1, date2))

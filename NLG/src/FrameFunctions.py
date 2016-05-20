@@ -2,8 +2,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy import stats
 import sys
+import csv
 
-Location = r'C:\CreditSuisse\REAL\NaturalLanguageGenerator\locus_data_12years.csv'
+Location = r'C:\Users\Carolyn\hack\NaturalLanguageGenerator\locus_data_12years.csv'
 df = pd.read_csv(Location)
 
 df_index = df.set_index('Date')
@@ -64,11 +65,12 @@ def get_col_index(ticker):
         if x == ticker:
             return count
 
-# create a sub df from the beginning to curDate
+
 def get_lowest(name, date):
     # series = df_index.loc[0:get_row_index(curDate), name:name].values()
     # print (series)
     series = df_index.loc[:, name: name].values[0:get_row_index(date)]
+    # print(series)
     min = series[0]
     count = 0
     counter = -1
@@ -78,7 +80,35 @@ def get_lowest(name, date):
             min = x
             count = counter
 
-    return float(min), count
+    text = ''
+    with open(Location, 'r') as f:
+        mycsv = csv.reader(f)
+        mycsv = list(mycsv)
+        text = mycsv[count+1][0]
+    return float(min), text
+
+
+def get_highest(name, date):
+    # series = df_index.loc[0:get_row_index(curDate), name:name].values()
+    # print (series)
+    series = df_index.loc[:, name: name].values[0:get_row_index(date)]
+    # print(series)
+    maximum = series[0]
+    count = 0
+    counter = -1
+    for x in series:
+        counter += 1
+        if maximum < x:
+            maximum = x
+            count = counter
+
+    text = ''
+    with open(Location, 'r') as f:
+        mycsv = csv.reader(f)
+        mycsv = list(mycsv)
+        text = mycsv[count+1][0]
+    return float(maximum), text
+
 
 def graph_yield_curve(date):
     rates = [2, 3, 5, 10, 30]
